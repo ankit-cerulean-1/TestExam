@@ -16,7 +16,7 @@ export function validatePhone(inputtxt)
 
 export function validateUrl(myURL) {
     let array = myURL.split(':');
-    if(array.length >0 && array[0] == 'http' || array[0] == 'https'){
+    if(array.length >0 && array[1]==='//' && array[0] === 'http' || array[0] === 'https' ){
         return true;
     }else
     return false;
@@ -24,7 +24,7 @@ export function validateUrl(myURL) {
 
  export function validateName(name){
     var re = /^[A-Za-z]+$/;
-    if(re.test(name))
+    if(name.length>0 && re.test(name))
       return true
     else
       return false     

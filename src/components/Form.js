@@ -11,7 +11,8 @@ class Form extends Component {
             isNameValid: false,
             isPhoneValid: false,
             isUrlValid: false,
-            Message: 'Enter Valid Data!'
+            Message: 'Form is Incomplete!',
+            color: 'red'
         };
 
     }
@@ -19,25 +20,25 @@ class Form extends Component {
     render() {
         return (
             <div className="row">
-            <h1 className="text-center">Form Validation</h1>
+            <h4 className="text-center">Form Validation</h4>
             <form>
-                <h3>Name:
-                </h3>
+                <h5>Name:
+                </h5>
                 <input onChange={(event)=>{this.validateName(event)}} required type='text'/>
-                <h3>Email:
-                </h3>
+                <h5>Email:
+                </h5>
                 <input onChange={(event)=>{this.validateEmail(event)}} type='text'/>
-                <h3>Phone:
-                </h3>
-                <input onChange={(event)=>{this.validatePhone(event)}} type='number' maxLength='10'/>
-                <h3>Blog URL:
-                </h3>
+                <h5>Phone:
+                </h5>
+                <input onChange={(event)=>{this.validatePhone(event)}}  maxLength='10'/>
+                <h5>Blog URL:
+                </h5>
                 <input onChange={(event)=>{this.validateUrl(event)}} type='text'/>
-                <div className="small-6 small-centered text-center columns">
-                    <a href="#" className="button success expand round text-center">Verify</a>
+                <div className="small-6 small-centered text-center columns" onClick={()=>{this.validateData()}}>
+                    <a className="button success expand round text-center">Verify</a>
                 </div>
             </form>
-            <Message  Message={this.state.Message}/>
+            <Message color={this.state.color} Message={this.state.Message}/>
         </div>);
     }
     validateEmail(event){
@@ -59,6 +60,19 @@ class Form extends Component {
         if(validateUrl(event.target.value)){
             this.setState({isUrlValid: true, Message: ''})
         }else this.setState({isUrlValid: false,Message: 'Enter Valid Url'})
+    }
+    validateData(){
+        if(this.state.isEmailValid && this.state.isNameValid && this.state.isPhoneValid && this.state.isUrlValid){
+            alert('Submitted Successfully')
+            this.setState({color: 'green', Message: 'Form Submitted Successfully!'})
+        }else{
+            let Message = ''
+            this.state.isEmailValid? '': Message = 'Enter Valid Email';
+            this.state.isNameValid? '': Message = 'Enter Valid Name';
+            this.state.isPhoneValid? '': Message = 'Enter Valid Phone';
+            this.state.isUrlValid? '': Message = 'Enter Valid Url';
+            this.setState({color: 'red', Message: Message})
+        }
     }
 
 }

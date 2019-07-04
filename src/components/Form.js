@@ -19,19 +19,19 @@ class Form extends Component {
     render() {
         return (
             <div className="row">
-            <h1 className="text-center">Form Validation</h1>
+            <h4 className="text-center">Form Validation</h4>
             <form>
-                <h3>Name:
-                </h3>
+                <h5>Name:
+                </h5>
                 <input onChange={(event)=>{this.validateName(event)}} required type='text'/>
-                <h3>Email:
-                </h3>
+                <h5>Email:
+                </h5>
                 <input onChange={(event)=>{this.validateEmail(event)}} type='text'/>
-                <h3>Phone:
-                </h3>
-                <input onChange={(event)=>{this.validatePhone(event)}} type='number' maxLength='10'/>
-                <h3>Blog URL:
-                </h3>
+                <h5>Phone:
+                </h5>
+                <input onChange={(event)=>{this.validatePhone(event)}} type='text' maxLength='10'/>
+                <h5>Blog URL:
+                </h5>
                 <input onChange={(event)=>{this.validateUrl(event)}} type='text'/>
                 <div className="small-6 small-centered text-center columns">
                     <a href="#" className="button success expand round text-center">Verify</a>

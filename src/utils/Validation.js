@@ -14,7 +14,7 @@ let phoneno = /^\d{10}$/;
 
 export function validateUrl(myURL) {
   let array = myURL.split(':');
-  if(array.length >0 && array[1]==='//' && array[0] === 'http' || array[0] === 'https' ){
+  if(array.length >0 && array[1]!== undefined && array[1].substring(0, 2)==='//' && array[0] === 'http' || array[0] === 'https' ){
       return true;
   }else
   return false;

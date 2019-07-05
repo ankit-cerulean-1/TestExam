@@ -30,11 +30,7 @@ class Form extends Component {
                 <input onChange={(event)=>{this.validateEmail(event)}} type='text'/>
                 <h5>Phone:
                 </h5>
-<<<<<<< HEAD
-                <input onChange={(event)=>{this.validatePhone(event)}}  maxLength='10'/>
-=======
                 <input onChange={(event)=>{this.validatePhone(event)}} type='text'  maxLength='10'/>
->>>>>>> tmp
                 <h5>Blog URL:
                 </h5>
                 <input onChange={(event)=>{this.validateUrl(event)}} type='text'/>
